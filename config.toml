@@ -1,0 +1,6 @@
+name = "New.jl"  # This must already be created as an empty repo on github.com/{user}
+user = "anirudh2"  # github.com/{user}
+authors = "Anirudh A. Patel"  # Can be ["Author 1", "Author 2"]
+julia = [1, 8]  # 1.8
+dir = "~/projects"  # Path where the project is created
+license = "MIT"  # E.g., ASL is Apache 2.0
