@@ -90,6 +90,7 @@ function createpackage(; name, user, authors, julia, dir, license)
     fulldir = dir |> expanduser |> realpath
     path = joinpath(fulldir, namesplit)
     cp("Release.yml", joinpath(path, ".github", "workflows", "Release.yml"))
+    cp("dco_check.yml", joinpath(path, ".github", "workflows", "dco_check.yml"))
     cp(".releaserc", joinpath(path, ".releaserc"))
     cp("CHANGELOG.md", joinpath(path, "CHANGELOG.md"))
 
