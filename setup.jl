@@ -130,8 +130,16 @@ function createpackage(; name, user, authors, julia, dir, license)
     )
     modfile(
         ciymlpath,
-        x -> contains(x, "COVERALLS_TOKEN"),
-        "          COVERALLS_TOKEN: \${{ secrets.GITHUB_TOKEN }}\n",
+        x -> contains(x, "repositoryUrl"),
+        "  \"repositoryUrl\": \"git@github.com:$user/$name.git\"",
+    )
+
+    @info "Setting permissions for compathelper"
+    compathelperpath = joinpath(path, ".github", "workflows", "CompatHelper.yml")
+    modfile(
+        compathelperpath,
+        x -> contains(x, "workflow_dispatch"),
+        "    workflow_dispatch:\n\npermissions:\n  pull-requests: write\n  contents: write\n\n",
     )
 
     @info "Appending post-setup instructions to README"
