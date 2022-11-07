@@ -139,7 +139,7 @@ function createpackage(; name, user, authors, julia, dir, license)
     modfile(
         compathelperpath,
         x -> contains(x, "workflow_dispatch"),
-        "    workflow_dispatch:\n\npermissions:\n  pull-requests: write\n  contents: write\n\n",
+        "  workflow_dispatch:\n\npermissions:\n  pull-requests: write\n  contents: write\n\n",
     )
 
     @info "Appending post-setup instructions to README"
