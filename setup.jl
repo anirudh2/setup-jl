@@ -72,7 +72,7 @@ function createpackage(; name, user, authors, julia, dir, license, usegpg)
         user=user,
         authors=authors,
         julia=julia,
-        dir="~/projects/",
+        dir=dir,
         plugins=[
             Git(; gpgsign=usegpg, ssh=true),
             GitHubActions(; extra_versions=String[], coverage=true),
