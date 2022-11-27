@@ -165,11 +165,11 @@ function createpackage(; name, user, authors, julia, dir, license, usegpg)
     @info "Creating initial commit and tag"
     @warn "This will fail if you have not created the upstream repo on GitHub at the correct URL."
     @warn "You must also have gpg commit signing set up."
-    # cd(path)
-    # run(`$(G.git()) add .`)
-    # run(`$(G.git()) commit -m "chore: Set up project"`)
-    # run(`$(G.git()) tag v0.0.0 -m "Set up project"`)
-    # return run(`$(G.git()) push --set-upstream origin main v0.0.0`)
+    cd(path)
+    run(`$(G.git()) add .`)
+    run(`$(G.git()) commit -m "chore: Set up project"`)
+    run(`$(G.git()) tag v0.0.0 -m "Set up project"`)
+    return run(`$(G.git()) push --set-upstream origin main v0.0.0`)
 end
 
 """
