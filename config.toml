@@ -4,3 +4,4 @@ authors = "Anirudh A. Patel"  # Can be ["Author 1", "Author 2"]
 julia = [1, 8]  # 1.8
 dir = "~/projects"  # Path where the project is created
 license = "MIT"  # E.g., ASL is Apache 2.0
+usegpg = true  # Whether to require signed commits

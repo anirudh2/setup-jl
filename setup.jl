@@ -52,11 +52,12 @@ function createpackage(path::AbstractString)
         julia=VersionNumber(config["julia"]...),
         dir=config["dir"],
         license=config["license"],
+        usegpg=config["usegpg"],
     )
 end
 
 """
-    createpackage(;name="MyProject.jl", user="anirudh2", authors="Anirudh A. Patel", julia=v"1.8", dir="~/projects/", licensetype="MIT")
+    createpackage(;name="MyProject.jl", user="anirudh2", authors="Anirudh A. Patel", julia=v"1.8", dir="~/projects/", licensetype="MIT", usegpg=true)
 
 Create a package with semantic release.
 
@@ -65,7 +66,7 @@ Run using `julia -e 'include("setup.jl"); createpackage(;kwargs)'`
 - `user` is the part of the GitHub URL that comes after github.com. E.g., github.com/anirudh2 => user="anirudh2"
 - `license` can be "MIT", "ASL" (Apache 2), "GPL", etc. A full list is available on [github](https://github.com/JuliaCI/PkgTemplates.jl/tree/master/templates/licenses)
 """
-function createpackage(; name, user, authors, julia, dir, license)
+function createpackage(; name, user, authors, julia, dir, license, usegpg)
     @info "Creating Package"
     t = PkgTemplates.Template(;
         user=user,
@@ -73,7 +74,7 @@ function createpackage(; name, user, authors, julia, dir, license)
         julia=julia,
         dir="~/projects/",
         plugins=[
-            Git(; gpgsign=true, ssh=true),
+            Git(; gpgsign=usegpg, ssh=true),
             GitHubActions(; extra_versions=String[], coverage=true),
             Coveralls(),
             Documenter{PkgTemplates.GitHubActions}(),
