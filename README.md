@@ -4,6 +4,8 @@ An opinionated way to create Julia packages with Semantic Release
 Much Credit to Jaan Tollander de Balsch.
 I modified much of this from [his work](https://github.com/jaantollander/SemanticReleaseExample.jl).
 
+This uses julia 1.9.2
+
 ## Usage
 
 1. Clone this repository.
